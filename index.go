@@ -17,11 +17,12 @@ type User struct {
   Age uint16 // целое число которое не может быть отрицательным (u)
   Money int16
   Avg_grades, Happiness float64 // средняя оценка и уровень счастья, число с точкой
+  Hobbies []string
 
 }
 
 func home_page(w http.ResponseWriter, r *http.Request) { // параметр, и запрос (вывод на экран)
-  bob := User{"Bob", 25, -123, 4.6, 0.8}
+  bob := User{"Bob", 25, -123, 4.6, 0.8, []string{"Football", "Programming", "Fishing"}}
   tmpl, _ := template.ParseFiles("templates/home_page.html") // две переменных, вторая не важна от того и такое название
   tmpl.Execute(w, bob) // вывод на страницу (куда писать и какие значения)
 }

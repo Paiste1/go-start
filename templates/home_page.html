@@ -8,11 +8,24 @@
 </head>
 <body>
   <h1>Главная страница</h1>
+
+  {{ if eq .Name "Bob" }}  <!-- либо не равно ne -->
+    <span>Привет Боб!</span>
+  {{ else }}
+    <span>Ты кто ?</span>
+  {{ end }}
+
   <p>Пользователь: {{ .Name }}</p>
   <p>Возраст: {{ .Age }}</p>
   <p>Баланс счета: {{ .Money }}</p>
   <p>Оценка пользователя: {{ .Avg_grades }}</p>
   <p>Уровнень счастья: {{ .Happiness }}</p>
+
+  <ul>
+    {{ range .Hobbies }}
+      <li><b> {{ . }} </b></li>
+    {{ end }}
+  </ul>
 
 </body>
 </html>
